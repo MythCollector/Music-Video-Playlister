@@ -1,0 +1,35 @@
+<video id="player" width="640" height="360" controls></video>
+<button onclick="prev()">Prev</button>
+<button onclick="next()">Next</button>
+<button onclick="shuffle()">Shuffle</button>
+
+<script>
+const videos = ["videos/video1.mp4", "videos/video2.mp4", "videos/video3.mp4"];
+let index = 0;
+const player = document.getElementById("player");
+
+function playVideo() {
+  player.src = videos[index];
+  player.play();
+}
+
+function next() {
+  index = (index + 1) % videos.length;
+  playVideo();
+}
+
+function prev() {
+  index = (index - 1 + videos.length) % videos.length;
+  playVideo();
+}
+
+function shuffle() {
+  index = Math.floor(Math.random() * videos.length);
+  playVideo();
+}
+
+// Autoplay next video when current ends
+player.addEventListener("ended", next);
+
+playVideo();
+</script>
