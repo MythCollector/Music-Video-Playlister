@@ -1,9 +1,9 @@
-// List your videos here
-const videos = [
-  "videos/video1.mp4",
-  "videos/video2.mp4",
-  "videos/video3.mp4"
-];
+const totalVideos = 2; // change this to the total number of videos
+const videos = [];
+
+for (let i = 23; i <= 24; i++) {  // start and end numbers
+  videos.push(`videos/video${i}.mp4`);
+}
 
 let index = 0;
 const player = document.getElementById("player");
@@ -47,8 +47,5 @@ function shuffle() {
   playVideo();
 }
 
-// Autoplay next video
 player.addEventListener("ended", next);
-
-// Start the first video
 playVideo();
